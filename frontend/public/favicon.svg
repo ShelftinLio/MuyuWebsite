@@ -1,0 +1,16 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- 木鱼轮廓 -->
+  <ellipse cx="16" cy="16" rx="15" ry="10" fill="#8B4513" stroke="#5D2906" stroke-width="1" />
+  
+  <!-- 木鱼顶部纹理 -->
+  <path d="M6,16 C6,11 11,7 16,7 C21,7 26,11 26,16" stroke="#5D2906" stroke-width="1" fill="none" />
+  
+  <!-- 木鱼底部纹理 -->
+  <path d="M6,16 C6,21 11,25 16,25 C21,25 26,21 26,16" stroke="#5D2906" stroke-width="1" fill="none" />
+  
+  <!-- 木鱼中间凹槽 -->
+  <ellipse cx="16" cy="16" rx="8" ry="3" fill="#5D2906" />
+  
+  <!-- 木鱼敲击点 -->
+  <circle cx="16" cy="16" r="2" fill="#3A1700" />
+</svg>

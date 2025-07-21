@@ -1,0 +1,59 @@
+# 依赖目录
+node_modules
+
+# 构建输出
+dist
+dist-ssr
+*.local
+
+# 编辑器目录和文件
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# 日志
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# 环境变量文件（包含敏感信息）
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# API文档和密钥相关文件
+扣子 API 文档和调用示例.md
+小木鱼 helper 调用资料.md
+前置资料.txt
+record.md
+
+# 测试覆盖率报告
+coverage
+
+# 临时文件
+.temp
+.tmp
+
+# 缓存
+.cache
+.parcel-cache
+
+# 其他
+*.bak
+*.swp
+*.swo
+
+# 参赛文档
+/参赛文档
+参赛文档/参赛说明文档.md

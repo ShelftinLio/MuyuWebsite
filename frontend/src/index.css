@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 自定义基础样式 */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-song text-ink bg-parchment;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-kai text-ink;
+  }
+}
+
+/* 自定义组件样式 */
+@layer components {
+  .scroll-container {
+    @apply relative overflow-hidden bg-paper-texture bg-cover;
+  }
+  
+  .scroll-content {
+    @apply p-6 md:p-10 transform origin-top;
+    animation: unfold 1.5s ease-out forwards;
+  }
+  
+  .traditional-button {
+    @apply px-6 py-2 bg-cinnabar text-parchment font-kai rounded-sm 
+           hover:bg-red-700 transition-colors duration-300 
+           border border-gold shadow-md;
+  }
+  
+  .section-title {
+    @apply text-2xl md:text-3xl font-kai text-cinnabar mb-6 
+           border-b-2 border-gold pb-2 inline-block;
+  }
+  
+  /* 下载相关样式 */
+  .download-hide {
+    @apply print:hidden;
+  }
+  
+  .download-only {
+    @apply hidden print:block;
+  }
+}
+
+/* 自定义动画 */
+@keyframes unfold {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* 木鱼书特有样式 */
+.muyu-text {
+  @apply font-fangsong text-lg leading-loose tracking-wide;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.ancient-paper {
+  @apply bg-parchment border border-amber-800 rounded-md p-6 shadow-lg;
+  background-image: 
+    linear-gradient(rgba(245, 232, 199, 0.8), rgba(245, 232, 199, 0.8)),
+    url('@assets/images/paper-texture.svg');
+}
