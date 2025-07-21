@@ -1,5 +1,26 @@
 # 木鱼书网站项目记录
 
+## 2025年8月6日
+- 任务：回退到 1.0.0 版本，放弃 Vercel 部署
+- 完成情况：成功
+- 备注：
+  - 由于 Vercel 部署后端服务遇到困难，决定回退到 1.0.0 版本
+  - 使用 git checkout 命令回退到 1.0.0 版本的提交（0a5729c）
+  - 创建了新的 version-1.0.0 分支并推送到远程仓库
+  - 移除了 vercel.json 文件和 .env.production 配置文件
+  - 恢复了原有的前后端分离部署方式
+
+## 2025年8月6日
+- 任务：修复 Vercel 部署 404 错误问题
+- 完成情况：成功
+- 备注：
+  - 创建了前端和后端的 .env.production 文件
+  - 前端配置了 VITE_API_BASE_URL=/api 和 VITE_NODE_ENV=production
+  - 后端配置了 NODE_ENV=production 和其他必要的环境变量
+  - 修改了 vercel.json 文件的路由配置，增加了静态资源路由和 SPA 路由重写规则
+  - 优化了 vite.config.js 文件，添加了 base 和 build 配置
+  - 简化了路由规则，解决了单页应用刷新 404 的问题
+
 ## 2025年8月5日
 - 任务：创建木鱼书文化传承与AI创新课程汇报文档
 - 完成情况：成功
