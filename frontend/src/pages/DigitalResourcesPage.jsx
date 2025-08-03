@@ -81,7 +81,7 @@ const DigitalResourcesPage = () => {
         <div className="container mx-auto max-w-6xl">
           <h2 className="animate-item text-3xl font-kai text-center mb-8 text-amber-800">木鱼书资源检索系统</h2>
           <p className="animate-item text-center text-ink/80 max-w-3xl mx-auto mb-12">
-            基于广州大典中的木鱼书条目，提供智能化的AI检索服务，帮助您快速找到所需的木鱼书资源。
+            基于《广州大典·曲类》中的木鱼书条目，提供智能化的AI检索服务，帮助您快速找到所需的木鱼书资源。
           </p>
           
           <div className="animate-item bg-white rounded-xl shadow-lg p-8 border border-amber-200">
