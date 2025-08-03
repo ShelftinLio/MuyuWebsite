@@ -72,28 +72,37 @@ const HeritagePreservationPage = () => {
             </p>
           </div>
           
-          <div className="animate-item flex flex-col md:flex-row gap-8 mt-12">
-            <div className="md:w-1/2 bg-parchment/80 p-6 rounded-lg shadow-md border border-ink/10">
-              <h3 className="text-2xl font-kai text-cinnabar mb-4">传统价值</h3>
-              <p className="mb-3">
-                木鱼书是岭南文化的重要组成部分，它不仅是一种文学形式，更是一种文化传承方式。
-                通过木鱼书，人们可以了解岭南地区的历史、风俗、信仰和价值观。
-              </p>
-              <p>
-                木鱼书的语言风格、表现手法和艺术特点，都体现了岭南文化的独特魅力，
-                是中华文化多元一体格局中不可或缺的一部分。
-              </p>
+          <div className="animate-item flex flex-col gap-8 mt-12">
+            <div className="bg-parchment/80 p-6 rounded-lg shadow-md border border-ink/10">
+              <h3 className="text-2xl font-kai text-cinnabar mb-4">木鱼书具备的价值</h3>
+              <ul className="space-y-4">
+                <li>
+                  <strong className="text-cinnabar">文学价值：</strong> 木鱼书题材丰富，包含爱情、历史、神怪等故事，像《花笺记》情节曲折动人，文学性强，对研究古代通俗文学创作手法、叙事结构等有重要意义；语言方面，它采用大量岭南地区的方言俗语，生动展现了当地语言特色和文化底蕴，是研究方言演变的珍贵语料。
+                </li>
+                <li>
+                  <strong className="text-cinnabar">艺术价值：</strong> 其独特的说唱艺术形式，融合了音乐、表演等多种艺术元素。唱腔丰富多变，具有浓郁的地方音乐风格，对研究岭南音乐的旋律、节奏等方面有参考价值 ；在表演上，艺人通过说唱、表情、动作等塑造形象，展现出独特的表演艺术魅力。
+                </li>
+                <li>
+                  <strong className="text-cinnabar">历史文化价值：</strong> 木鱼书记录了当时社会的生活风貌、风俗习惯、价值观念等。比如通过书中描写能了解到明清时期岭南地区的婚丧嫁娶习俗、商业活动情况等，是研究地方社会史、民俗史的重要资料，也是传承岭南文化的重要载体，承载着当地民众的集体记忆和文化认同。
+                </li>
+              </ul>
             </div>
-            <div className="md:w-1/2 bg-parchment/80 p-6 rounded-lg shadow-md border border-ink/10">
-              <h3 className="text-2xl font-kai text-cinnabar mb-4">现代挑战</h3>
-              <p className="mb-3">
-                随着现代社会的快速发展，木鱼书面临着传承人老龄化、年轻一代兴趣减少、
-                传播渠道有限等多重挑战。
-              </p>
-              <p>
-                如何在保持木鱼书传统特色的同时，赋予其新的时代内涵，
-                使其在现代社会中焕发新的生机，是我们面临的重要课题。
-              </p>
+            <div className="bg-parchment/80 p-6 rounded-lg shadow-md border border-ink/10">
+              <h3 className="text-2xl font-kai text-cinnabar mb-4">木鱼书现代传承面临的挑战</h3>
+              <ul className="space-y-4">
+                <li>
+                  <strong className="text-cinnabar">传承人群体萎缩：</strong> 木鱼书说唱收益不高，年轻人为追求更好的经济收入，往往选择其他职业，导致愿意学习和传承木鱼书的年轻人数量稀少 ；并且，现有传承人年龄普遍较大，很多技艺和知识未能及时有效传承下去。
+                </li>
+                <li>
+                  <strong className="text-cinnabar">受众群体缩小：</strong> 在现代多元娱乐方式冲击下，如网络视频、电子游戏等，木鱼书的说唱形式对年轻一代吸引力不足，受众主要集中在老年群体，市场需求小，导致其传播范围受限。
+                </li>
+                <li>
+                  <strong className="text-cinnabar">文本保存困难：</strong> 许多木鱼书以古籍抄本或刻本形式存在，因年代久远，纸张老化、虫蛀、霉变等问题严重，且部分散落在民间收藏家手中，缺乏专业的保护和管理，容易造成文本损坏和流失。
+                </li>
+                <li>
+                  <strong className="text-cinnabar">文化语境变迁：</strong> 随着社会快速发展，现代生活方式和价值观改变，木鱼书中所反映的传统生活场景和价值观念逐渐远离人们的生活，导致人们对其理解和共鸣减少，增加了传承难度。
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -140,13 +149,13 @@ const HeritagePreservationPage = () => {
           <div className="animate-item bg-ink/60 border border-gold/20 rounded-lg p-6 mt-8">
             <h3 className="text-xl font-kai text-gold mb-4 text-center">保护现状</h3>
             <p className="text-parchment/80 mb-4">
-              目前，木鱼书已被列入广东省非物质文化遗产名录，但保护工作仍面临诸多挑战。
-              政府和民间组织虽然开展了一系列保护措施，但由于资源有限、保护体系不完善等原因，
-              保护效果尚未达到预期。
+              木鱼书的保护现状呈现出一定进展与不少问题并存的局面。
+            </p>
+            <p className="text-parchment/80 mb-4">
+              在进展方面，各地文化部门、研究机构等积极开展文本收集整理工作，建立数据库并整理出版部分珍贵版本；政府重视传承人保护与培养，通过认定传承人、提供支持鼓励其开展传承活动，部分院校也纳入相关课程；各地通过文化节、展览、演出及新媒体等进行宣传推广，学界研究也不断深入。
             </p>
             <p className="text-parchment/80">
-              木鱼书的数字化保存工作也在进行中，但由于木鱼书的表演性、口传性特点，
-              单纯的文字记录难以完整保存其艺术魅力，需要更加全面的保护策略。
+              但同时，问题依然存在，大量文本散落民间因缺乏专业保护面临损坏风险，且部分收藏者不愿配合导致难以妥善保管；传承因学习难度大、经济效益低而后继乏人；宣传推广在与现代娱乐竞争中效果有限，线上内容形式单一、线下覆盖面不足；保护资金主要依赖政府拨款，社会资本参与少，存在资金缺口，相关政策执行也有待加强。
             </p>
           </div>
         </div>

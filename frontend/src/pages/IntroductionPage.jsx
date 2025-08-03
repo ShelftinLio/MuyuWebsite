@@ -57,6 +57,9 @@ const IntroductionPage = () => {
           <p className="text-xl font-fangsong text-ink max-w-3xl mx-auto">
             从帝女花到粤剧，再到木鱼书，探索这一传统艺术形式的起源与发展
           </p>
+          <p className="text-md font-fangsong text-gray-600 max-w-2xl mx-auto mt-4 italic">
+            “在当下，说唱作品《大展鸿图》火爆全网，其极具冲击力的节奏和充满广式风情的歌词令人印象深刻。仔细聆听，会发现歌曲中不断重复的旋律，巧妙采样自粤剧经典《帝女花》。”
+          </p>
         </div>
       </section>
 
@@ -74,8 +77,7 @@ const IntroductionPage = () => {
                 这部作品在网络时代重获新生，成为了许多人了解传统文化的入口。
               </p>
               <p className="animate-item muyu-text">
-                从网络红歌到追溯其源头，我们发现《帝女花》是粤剧的瑰宝，而粤剧的前身之一，
-                正是我们今天要介绍的木鱼书。
+                
               </p>
             </div>
             <div className="md:w-1/2 animate-item">
@@ -101,15 +103,13 @@ const IntroductionPage = () => {
             <div className="md:w-1/2">
               <h2 className="animate-item section-title">粤剧</h2>
               <p className="animate-item muyu-text mb-4">
-                粤剧是流行于广东、广西、香港、澳门及海外华人聚居地的汉族地方戏曲剧种，
-                被列入国家级非物质文化遗产名录。
+                粤剧并非孤高艺术，它的血脉中奔涌着广府街头说唱的三大支流：
               </p>
-              <p className="animate-item muyu-text mb-4">
-                南音是粤剧的前身之一，其代表曲目《客途秋恨》展现了独特的岭南文化特色。
-              </p>
-              <p className="animate-item muyu-text">
-                而南音，正是木鱼书的一种表现形式，是连接木鱼书与粤剧的重要纽带。
-              </p>
+              <ul className="animate-item muyu-text space-y-2 list-inside mb-4">
+                <li><strong className="text-cinnabar">南音</strong>：失明艺人怀抱琵琶，一人分饰多角吟唱乱世情殇，《客途秋恨》中“凉风有信，秋月无边”道尽飘零；</li>
+                <li><strong className="text-cinnabar">龙舟歌</strong>：游吟者胸挂锣鼓，手托木雕龙舟即兴编唱，“鲤鱼喐喐，朝鱼晚肉”的吉祥话满是市井生机；</li>
+                <li><strong className="text-cinnabar">木鱼歌</strong>：盲艺人敲击刳空硬木击节而歌，用俚俗粤语讲述长篇故事——<strong>这才是粤调说唱的根系。</strong></li>
+              </ul>
             </div>
             <div className="md:w-1/2 animate-item">
               <div className="aspect-video rounded-lg shadow-lg overflow-hidden">
@@ -130,17 +130,13 @@ const IntroductionPage = () => {
         className="py-16 px-4 bg-parchment"
       >
         <div className="container mx-auto max-w-4xl">
-          <h2 className="animate-item section-title text-center mx-auto mb-12">木鱼书的起源</h2>
+          <h2 className="animate-item section-title text-center mx-auto mb-12">木鱼书</h2>
           
           <div className="animate-item ancient-paper mb-8">
             <p className="muyu-text mb-4">
-              木鱼歌从诞生之时，就带有从娘胎带来千年民歌基因的顽强生命力，只是这种顽强不表现在自身艺术水平上的进化，而是表现在以母亲的胸怀与社会环境互动后，渐次衍生出新的三个说唱艺术品种：龙舟、南音和粤谣。
+              木鱼书是广东民间说唱曲艺木鱼歌的文字底本，诞生于明中期，受弹词、宝卷影响，以类似木鱼的敲击乐器伴奏，盛行于广东地区。其内容丰富多样，故事既取自传统题材，涵盖历史传奇、才子佳人等多种类型，又能敏锐捕捉时事热点，反映社会现实。在艺术特征上，语言形式以七言为主，说唱结合，常一唱到底，间或插入衬字；语言雅俗共赏，融入大量粤方言，充满岭南地域特色和烟火气息；还善用丰富的修辞手法，生动展现人物与事物 。
             </p>
-            <ul className="muyu-text space-y-2 list-inside">
-              <li><strong className="text-cinnabar">南音</strong>：失明艺人怀抱琵琶，一人分饰多角吟唱乱世情殇，《客途秋恨》中"凉风有信，秋月无边"道尽飘零；</li>
-              <li><strong className="text-cinnabar">龙舟歌</strong>：游吟者胸挂锣鼓，手托木雕龙舟即兴编唱，"鲤鱼喐喐，朝鱼晚肉"的吉祥话满是市井生机；</li>
-              <li><strong className="text-cinnabar">木鱼歌</strong>：盲艺人敲击刳空硬木击节而歌，用俚俗粤语讲述长篇故事——这才是粤调说唱的根系。</li>
-            </ul>
+
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-item">
@@ -176,8 +172,8 @@ const IntroductionPage = () => {
             <div className="animate-item bg-parchment border border-amber-800/30 rounded-lg p-6 shadow-md">
               <h3 className="text-xl font-kai text-cinnabar mb-4">演唱者</h3>
               <p className="text-ink">
-                木鱼书的演唱者多为民间艺人，也有僧人、文人参与。
-                他们通过口传心授的方式学习技艺，将这一文化代代相传。
+                过去以说唱为生的职业艺人，多是失明的瞽师。
+                他们在社会上属于最卑下的阶层，说唱是他们谋生的唯一技能，也是他们生活的传统。
               </p>
             </div>
             <div className="animate-item bg-parchment border border-amber-800/30 rounded-lg p-6 shadow-md">
@@ -224,18 +220,7 @@ const IntroductionPage = () => {
             <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gold/50"></div>
             
             {/* 时间点 */}
-            <div className="animate-item relative z-10 mb-12">
-              <div className="flex items-center justify-center">
-                <div className="bg-gold w-4 h-4 rounded-full"></div>
-              </div>
-              <div className="mt-4 bg-ink/80 border border-gold/30 rounded-lg p-6 shadow-lg max-w-md mx-auto">
-                <h3 className="text-xl font-kai text-gold mb-2">明朝中期（约16世纪）</h3>
-                <p className="text-parchment/80">
-                  木鱼书起源于寺庙中，僧人用木鱼伴奏演唱佛经故事，
-                  目的是向民众宣传佛教教义。
-                </p>
-              </div>
-            </div>
+
             
             <div className="animate-item relative z-10 mb-12">
               <div className="flex items-center justify-center">
@@ -243,9 +228,10 @@ const IntroductionPage = () => {
               </div>
               <div className="mt-4 bg-ink/80 border border-gold/30 rounded-lg p-6 shadow-lg max-w-md mx-auto">
                 <h3 className="text-xl font-kai text-gold mb-2">明朝晚期至清朝初期（约17世纪）</h3>
-                <p className="text-parchment/80">
-                  木鱼书逐渐世俗化，内容扩展到历史故事、民间传说等，
-                  成为民间娱乐的重要形式。
+                <p className="text-parchment/80 leading-relaxed">
+                  目前可见最早的木鱼书，是郑振铎在巴黎发现康熙五十二年（1714）出版的《花笺记》，而根据书内钟戴苍氏的评语，提及 “歌本” 的名称，可知木鱼书于清初时名为歌本。钟氏在评语内还提及其他歌本，包括有《二荷花史》、《四美联床》。
+                  <br/><br/>
+                  据此推断，木鱼书既在康熙年间已流行，其出现可能早于清初。
                 </p>
               </div>
             </div>
@@ -255,10 +241,11 @@ const IntroductionPage = () => {
                 <div className="bg-gold w-4 h-4 rounded-full"></div>
               </div>
               <div className="mt-4 bg-ink/80 border border-gold/30 rounded-lg p-6 shadow-lg max-w-md mx-auto">
-                <h3 className="text-xl font-kai text-gold mb-2">清朝中晚期（约18-19世纪）</h3>
-                <p className="text-parchment/80">
-                  木鱼书与南音结合，形成了独特的艺术风格，
-                  成为粤剧形成的重要源头之一。
+                <h3 className="text-xl font-kai text-gold mb-2">清至民国初年（约18-19世纪）</h3>
+                <p className="text-parchment/80 leading-relaxed">
+                  清初之后木鱼书的印行非常蓬勃。由木鱼书内所见的藏板识记，如静净斋、华翰堂、进盛堂、明秀堂等出版商，在乾隆年间已经印售木鱼书。
+                  <br/><br/>
+                  从现存的及已散佚而只存篇目的数量，可知在清代一段长时期，刊印木鱼书是一种兴盛的事业。在广州和四郊的乡镇，均有木鱼书的出版商号。一直到一九五零年间，香港仍有数家木鱼书的出版商。
                 </p>
               </div>
             </div>
@@ -269,9 +256,16 @@ const IntroductionPage = () => {
               </div>
               <div className="mt-4 bg-ink/80 border border-gold/30 rounded-lg p-6 shadow-lg max-w-md mx-auto">
                 <h3 className="text-xl font-kai text-gold mb-2">现代（20世纪至今）</h3>
-                <p className="text-parchment/80">
-                  随着社会变迁，木鱼书逐渐式微，但作为非物质文化遗产，
-                  得到了政府和民间的保护和传承。
+                <p className="text-parchment/80 leading-relaxed">
+                  作为表演艺术的木鱼歌演出随着新时代新艺术的发展逐渐退出了观众的视野，但对于木鱼歌这种非物质文化遗产的保护仍然在进行中：
+                  <br/><br/>
+                  木鱼歌在 2007 年被列入<strong>东莞市</strong>首批非物质文化遗产项目代表作名录；
+                  <br/>
+                  2009 年被列入广东省第三批非物质文化遗产项目代表作名录；
+                  <br/>
+                  2011 年 5 月则被国务院公布为第三批国家级非物质文化遗产项目名录。
+                  <br/><br/>
+                  研究广东木鱼书对于非物质文化遗产的保护仍然具有重要意义。
                 </p>
               </div>
             </div>
