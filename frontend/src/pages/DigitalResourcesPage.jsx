@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SearchSystem from '../components/SearchSystem';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -68,6 +69,23 @@ const DigitalResourcesPage = () => {
             <p className="text-lg">
               以下是我们收集和整理的木鱼书数字资源，供爱好者学习和研究。
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 木鱼书资源检索系统 */}
+      <section 
+        ref={addToRefs}
+        className="py-16 px-4 bg-gradient-to-br from-amber-50 to-orange-100"
+      >
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="animate-item text-3xl font-kai text-center mb-8 text-amber-800">木鱼书资源检索系统</h2>
+          <p className="animate-item text-center text-ink/80 max-w-3xl mx-auto mb-12">
+            基于广州大典中的木鱼书条目，提供智能化的AI检索服务，帮助您快速找到所需的木鱼书资源。
+          </p>
+          
+          <div className="animate-item bg-white rounded-xl shadow-lg p-8 border border-amber-200">
+            <SearchSystem />
           </div>
         </div>
       </section>

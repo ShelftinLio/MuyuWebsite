@@ -166,8 +166,8 @@ const MuyuHelper = () => {
       {/* 对话框 */}
       {isOpen && (
         <div 
-          className="bg-parchment rounded-lg shadow-xl mb-4 w-80 sm:w-96 flex flex-col border-2 border-jade"
-          style={{ height: '500px', maxHeight: '70vh' }}
+          className="bg-parchment rounded-lg shadow-xl mb-4 w-96 sm:w-[28rem] flex flex-col border-2 border-jade"
+          style={{ height: '600px', maxHeight: '80vh' }}
         >
           {/* 对话框头部 */}
           <div className="bg-jade text-parchment p-3 rounded-t-lg flex justify-between items-center font-kai">

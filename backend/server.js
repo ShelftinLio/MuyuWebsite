@@ -4,6 +4,7 @@ const axios = require('axios');
 require('dotenv').config();
 const auth = require('./auth'); // 引入认证模块
 const deepseekApi = require('./deepseekApi'); // 引入Deepseek API模块
+const searchApi = require('./searchApi'); // 引入检索系统API模块
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -15,6 +16,172 @@ app.use(express.json());
 // 健康检查
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: '木鱼书网站API服务正常运行' });
+});
+
+// 检索系统API路由
+
+// 存储检索会话消息的临时缓存
+const searchSessionMessages = new Map();
+
+// 木鱼书检索流式输出 - GET请求处理EventSource连接
+app.get('/api/search-muyu', async (req, res) => {
+  try {
+    const { stream, session } = req.query;
+    
+    // 只处理流式请求
+    if (stream !== 'true') {
+      return res.status(400).json({ error: '非流式请求应使用POST方法' });
+    }
+    
+    // 如果没有提供会话ID或会话不存在
+    if (!session || !searchSessionMessages.has(session)) {
+      // 设置SSE响应头
+      res.setHeader('Content-Type', 'text/event-stream');
+      res.setHeader('Cache-Control', 'no-cache');
+      res.setHeader('Connection', 'keep-alive');
+      
+      // 发送错误事件
+      res.write(`event: error\ndata: {"error":"无效的会话ID或会话已过期"}\n\n`);
+      return res.end();
+    }
+    
+    // 从会话缓存中获取查询
+    const query = searchSessionMessages.get(session);
+    
+    // 调用检索系统API的流式输出模式
+    return await searchApi.searchWithCoze(query, res);
+  } catch (error) {
+    console.error('处理检索EventSource连接失败:', error);
+    
+    // 如果响应头尚未发送，设置SSE响应头
+    if (!res.headersSent) {
+      res.setHeader('Content-Type', 'text/event-stream');
+      res.setHeader('Cache-Control', 'no-cache');
+      res.setHeader('Connection', 'keep-alive');
+    }
+    
+    // 发送错误事件
+    res.write(`event: error\ndata: {"error":${JSON.stringify(error.message)}}\n\n`);
+    res.end();
+  }
+});
+
+// 木鱼书检索 - POST请求接收查询
+app.post('/api/search-muyu', async (req, res) => {
+  try {
+    const { query } = req.body;
+    const { stream, session } = req.query; // 从查询参数中获取是否使用流式输出和会话ID
+    
+    if (!query || typeof query !== 'string') {
+      return res.status(400).json({ error: '查询参数无效' });
+    }
+    
+    // 如果是流式请求且提供了会话ID，存储查询以便EventSource连接使用
+    if (stream === 'true' && session) {
+      searchSessionMessages.set(session, query);
+      // 设置5分钟后自动清理会话数据
+      setTimeout(() => {
+        searchSessionMessages.delete(session);
+      }, 5 * 60 * 1000);
+      return res.status(200).json({ status: 'ok', message: '查询已接收，等待SSE连接' });
+    }
+    // 如果请求流式输出但没有会话ID（兼容旧版本）
+    else if (stream === 'true') {
+      // 调用检索系统API的流式输出模式
+      return await searchApi.searchWithCoze(query, res);
+    } else {
+      // 非流式输出模式
+      const response = await searchApi.searchWithCoze(query);
+      res.json(response);
+    }
+  } catch (error) {
+    console.error('木鱼书检索失败:', error);
+    
+    // 开发环境下返回模拟数据
+    if (process.env.NODE_ENV === 'development') {
+      console.log('开发环境，返回模拟检索数据');
+      
+      // 如果是流式请求
+      if (req.query.stream === 'true') {
+        res.setHeader('Content-Type', 'text/event-stream');
+        res.setHeader('Cache-Control', 'no-cache');
+        res.setHeader('Connection', 'keep-alive');
+        
+        // 模拟思考过程
+        res.write(`event: message\ndata: ${JSON.stringify({
+          type: 'thinking',
+          content: '正在分析您的查询...'
+        })}\n\n`);
+        
+        setTimeout(() => {
+          res.write(`event: message\ndata: ${JSON.stringify({
+            type: 'thinking',
+            content: '正在搜索木鱼书数据库...'
+          })}\n\n`);
+        }, 1000);
+        
+        setTimeout(() => {
+          res.write(`event: message\ndata: ${JSON.stringify({
+            type: 'result',
+            content: `根据您的查询"${req.body.query}"，找到以下木鱼书资源：\n\n1. 花笺记 - 经典爱情故事\n2. 二荷花史 - 历史传说\n\n这是开发环境的模拟数据。`
+          })}\n\n`);
+        }, 2000);
+        
+        setTimeout(() => {
+          res.write(`event: message\ndata: ${JSON.stringify({
+            type: 'complete'
+          })}\n\n`);
+          res.end();
+        }, 3000);
+      } else {
+        res.json({
+          results: [
+            {
+              title: '花笺记',
+              description: '经典木鱼书爱情故事',
+              category: '爱情故事'
+            },
+            {
+              title: '二荷花史', 
+              description: '历史题材木鱼书',
+              category: '历史传说'
+            }
+          ]
+        });
+      }
+    } else {
+      res.status(500).json({ error: '检索服务暂时不可用', details: error.message });
+    }
+  }
+});
+
+// 获取木鱼书目录
+app.get('/api/muyu-catalog', (req, res) => {
+  try {
+    const catalog = searchApi.getMuyuCatalogData();
+    res.json({ catalog });
+  } catch (error) {
+    console.error('获取木鱼书目录失败:', error);
+    res.status(500).json({ error: '获取目录失败', details: error.message });
+  }
+});
+
+// 根据ID获取木鱼书信息
+app.get('/api/muyu-book/:id', (req, res) => {
+  try {
+    const { id } = req.params;
+    const catalog = searchApi.getMuyuCatalogData();
+    const book = catalog.find(item => item.id === id);
+    
+    if (!book) {
+      return res.status(404).json({ error: '未找到指定的木鱼书' });
+    }
+    
+    res.json(book);
+  } catch (error) {
+    console.error('获取木鱼书信息失败:', error);
+    res.status(500).json({ error: '获取木鱼书信息失败', details: error.message });
+  }
 });
 
 // 小木鱼助手流式输出 - GET请求处理EventSource连接
