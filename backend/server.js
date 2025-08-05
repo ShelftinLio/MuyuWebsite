@@ -23,6 +23,9 @@ app.get('/api/health', (req, res) => {
 // 存储检索会话消息的临时缓存
 const searchSessionMessages = new Map();
 
+// 存储小木鱼助手会话消息的临时缓存
+const sessionMessages = new Map();
+
 // 木鱼书检索流式输出 - GET请求处理EventSource连接
 app.get('/api/search-muyu', async (req, res) => {
   try {
@@ -239,9 +242,6 @@ app.get('/api/muyu-helper/welcome', (req, res) => {
     res.status(500).json({ error: '获取开场白失败', details: error.message });
   }
 });
-
-// 存储会话消息的临时缓存
-const sessionMessages = new Map();
 
 // 与小木鱼助手对话 - POST请求接收消息
 app.post('/api/muyu-helper/chat', async (req, res) => {
